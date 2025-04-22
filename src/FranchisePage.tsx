@@ -165,7 +165,8 @@ function FranchisePage() {
                   <Phone className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-2">Direct Contact</h3>
                   <p className="text-gray-600 mb-4">Speak with our franchise development team</p>
-                  <p className="text-xl font-semibold text-yellow-600">1-800-SANDHYA-SOLAR</p>
+                  <p className="text-xl font-semibold text-yellow-500">+91-9201717269</p>
+                  <p className="text-xl font-semibold text-yellow-500">sandhyasolarmp@gmail.com</p>
                   <p className="text-gray-600 mt-2">Mon-Sat: 9AM to 6PM</p>
                 </div>
               </div>

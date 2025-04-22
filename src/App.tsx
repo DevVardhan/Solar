@@ -269,12 +269,13 @@ function App() {
                   </button>
                 </form>
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center">  
                 <div className="text-center">
                   <Phone className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
                   <p className="text-gray-600 mb-4">We're here to answer your questions</p>
-                  <p className="text-xl font-semibold text-yellow-600">1-800-SANDHYA-SOLAR</p>
+                  <p className="text-xl font-semibold text-yellow-500">+91-9201717269</p>
+                  <p className="text-xl font-semibold text-yellow-500">sandhyasolarmp@gmail.com</p>
                 </div>
               </div>
             </div>
