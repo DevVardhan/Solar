@@ -292,7 +292,7 @@ function App() {
               <span className="text-xl font-bold">SandhyaSolar</span>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-400">© 2025 SandhyaSolar. All rights reserved.</p>
+              <p className="text-gray-400">© Copyright 2025 SandhyaSolar. All rights reserved.</p>
             </div>
           </div>
         </div>
