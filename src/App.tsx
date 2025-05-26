@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sun, Battery, Leaf, ArrowRight, Phone, Shield, Clock, PenTool as Tool, Home, Building2, Factory, Zap } from 'lucide-react';
 import FranchisePage from './FranchisePage';
+import image from "../dist/assets/image.png";
 
 function App() {
   const [showFranchise, setShowFranchise] = React.useState(false);
@@ -38,11 +39,12 @@ function App() {
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         </div>
         
-        <nav className="relative z-10 container mx-auto px-6 py-8">
+        <nav className="relative z-10 container mx-auto px-6 ">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Sun className="h-8 w-8 text-yellow-400" />
-              <span className="text-2xl font-bold text-white">SandhyaSolar</span>
+              {/* <Sun className="h-8 w-8 text-yellow-400" />  */}
+               <img src={image} alt="Sandhya Solar Logo" className="h-40 w-40" />
+              {/* <span className="text-2xl font-bold text-white">SandhyaSolar</span> */}
             </div>
             <div className="hidden md:flex space-x-8 text-white">
               <a href="#solar-guide" className="hover:text-yellow-400 transition">Solar Guide</a>
