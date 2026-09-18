@@ -57,8 +57,14 @@ export default function BlogDetailPage() {
   return (
     <div className="min-h-screen bg-white">
       {blog.coverImage && (
-        <div className="w-full h-80">
-          <img src={blog.coverImage} alt={blog.title} className="w-full h-full object-cover" />
+        <div className="container mx-auto px-6 pt-12">
+          <div className="max-w-3xl mx-auto rounded-lg shadow-lg overflow-hidden bg-gray-50">
+            <img
+              src={blog.coverImage}
+              alt={blog.title}
+              className="w-full h-[420px] object-contain bg-white"
+            />
+          </div>
         </div>
       )}
       <div className="container mx-auto px-6 py-12 max-w-3xl">
