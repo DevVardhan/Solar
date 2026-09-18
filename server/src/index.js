@@ -1,9 +1,16 @@
 import 'dotenv/config';
+import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import { connectDB } from './config/db.js';
+import authRoutes from './routes/authRoutes.js';
+import blogRoutes from './routes/blogRoutes.js';
+import adminBlogRoutes from './routes/adminBlogRoutes.js';
+import imageRoutes from './routes/imageRoutes.js';
+import adminImageRoutes from './routes/adminImageRoutes.js';
+import adminUserRoutes from './routes/adminUserRoutes.js';
 
 const app = express();
 
@@ -26,13 +33,12 @@ app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
-// Routes will be added here as we build them:
-// app.use('/api/auth', authRoutes);
-// app.use('/api/blogs', publicBlogRoutes);
-// app.use('/api/admin/blogs', adminBlogRoutes);
-// app.use('/api/images', publicImageRoutes);
-// app.use('/api/admin/images', adminImageRoutes);
-// app.use('/api/admin/users', adminUserRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/blogs', blogRoutes);
+app.use('/api/admin/blogs', adminBlogRoutes);
+app.use('/api/images', imageRoutes);
+app.use('/api/admin/images', adminImageRoutes);
+app.use('/api/admin/users', adminUserRoutes);
 
 // Centralized error handler — never leak internals in production
 app.use((err, _req, res, _next) => {

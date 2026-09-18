@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Sun,
   Battery,
@@ -14,6 +15,7 @@ import {
   Zap,
 } from "lucide-react";
 import FranchisePage from "./FranchisePage";
+import Gallery from "./components/Gallery";
 import image from "../dist/assets/image.png";
 
 function App() {
@@ -104,6 +106,9 @@ function App() {
               <a href="#contact" className="hover:text-yellow-400 transition">
                 Contact
               </a>
+              <Link to="/blogs" className="hover:text-yellow-400 transition">
+                Blog
+              </Link>
               <button
                 onClick={() => setShowFranchise(true)}
                 className="text-yellow-400 hover:text-yellow-300 transition"
@@ -336,6 +341,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <Gallery />
 
       {/* Contact Section */}
       <section id="contact" className="py-20">
