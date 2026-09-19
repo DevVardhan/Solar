@@ -79,18 +79,21 @@ function App() {
         </div>
 
         <nav className="relative z-10 container mx-auto px-6">
-          <div className="flex items-center justify-between">
+          <div className="flex items-start justify-between">
             {/* Logo Section */}
-            <div className="flex items-center space-x-2 h-20">
+            <div className="flex items-center space-x-2 h-40">
               <img
                 src={image}
                 alt="Sandhya Solar Logo"
-                className="h-full w-auto object-contain"
+                className="h-full w-auto max-w-[160px] object-contain"
               />
             </div>
 
             {/* Nav Links */}
-            <div className="hidden md:flex space-x-8 text-white items-center">
+            <div
+              className="hidden md:flex space-x-8 text-white items-center"
+              style={{ paddingTop: '20px' }}
+            >
               <a
                 href="#solar-guide"
                 className="hover:text-yellow-400 transition"
