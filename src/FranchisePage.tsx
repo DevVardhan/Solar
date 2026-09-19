@@ -23,7 +23,7 @@ function FranchisePage() {
     const body = encodeURIComponent(
       `Name: ${franchiseForm.name}\nEmail: ${franchiseForm.email}\nPhone: ${franchiseForm.phone}\nCity of Interest: ${franchiseForm.city}\nInvestment Budget: ${franchiseForm.budget}\n\nAdditional Comments:\n${franchiseForm.comments}`
     );
-    window.location.href = `mailto:ishaansinghk07@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:sandhyasolarmp@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (

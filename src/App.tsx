@@ -38,7 +38,7 @@ function App() {
     const body = encodeURIComponent(
       `Name: ${contactForm.name}\nEmail: ${contactForm.email}\n\nMessage:\n${contactForm.message}`
     );
-    window.location.href = `mailto:ishaansinghk07@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:sandhyasolarmp@gmail.com?subject=${subject}&body=${body}`;
   };
 
   if (showFranchise) {
