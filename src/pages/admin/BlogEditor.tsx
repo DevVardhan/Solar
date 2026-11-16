@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Upload } from 'lucide-react';
-import api from '../../api/axios';
+import api, { getErrorMessage } from '../../api/axios';
 
 export default function BlogEditor({ basePath }: { basePath: string }) {
   const { id } = useParams(); // undefined when creating a new blog
@@ -56,8 +56,8 @@ export default function BlogEditor({ basePath }: { basePath: string }) {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setForm((f) => ({ ...f, coverImage: res.data.url }));
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Image upload failed');
+    } catch (err) {
+      setError(getErrorMessage(err, 'Image upload failed'));
     } finally {
       setUploadingCover(false);
     }
@@ -78,8 +78,8 @@ export default function BlogEditor({ basePath }: { basePath: string }) {
         await api.patch(`/admin/blogs/${blogId}/publish`);
       }
       navigate(`${basePath}/blogs`);
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Failed to save blog');
+    } catch (err) {
+      setError(getErrorMessage(err, 'Failed to save blog'));
     } finally {
       setSaving(false);
     }

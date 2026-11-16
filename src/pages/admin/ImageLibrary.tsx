@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trash2, Copy, Upload } from 'lucide-react';
-import api from '../../api/axios';
+import api, { getErrorMessage } from '../../api/axios';
 
 interface ImageItem {
   _id: string;
@@ -39,8 +39,8 @@ export default function ImageLibrary() {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       load();
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Upload failed');
+    } catch (err) {
+      setError(getErrorMessage(err, 'Upload failed'));
     } finally {
       setUploading(false);
       if (fileInputRef.current) fileInputRef.current.value = '';

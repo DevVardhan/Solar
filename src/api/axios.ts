@@ -7,4 +7,14 @@ const api = axios.create({
   withCredentials: true,
 });
 
+export function getErrorMessage(err: unknown, fallback = 'An error occurred'): string {
+  if (axios.isAxiosError(err)) {
+    return err.response?.data?.message || fallback;
+  }
+  if (err instanceof Error) {
+    return err.message;
+  }
+  return fallback;
+}
+
 export default api;

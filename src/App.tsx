@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import FranchisePage from "./FranchisePage";
 import Gallery from "./components/Gallery";
-import image from "../dist/assets/image.png";
+import image from "./assets/image.png";
 
 function App() {
   const [showFranchise, setShowFranchise] = React.useState(false);

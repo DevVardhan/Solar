@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { getErrorMessage } from '../../api/axios';
 
 interface Props {
   requiredRole: 'SUPER_ADMIN' | 'CONTENT_ADMIN';
@@ -27,8 +28,8 @@ export default function LoginPage({ requiredRole, dashboardPath, title }: Props)
         return;
       }
       navigate(dashboardPath);
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Login failed');
+    } catch (err) {
+      setError(getErrorMessage(err, 'Login failed'));
     } finally {
       setSubmitting(false);
     }

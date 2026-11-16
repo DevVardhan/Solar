@@ -14,13 +14,29 @@ import adminUserRoutes from './routes/adminUserRoutes.js';
 
 const app = express();
 
+// Trust reverse proxy (e.g. Render, Railway, Fly, Heroku, Vercel) for HTTPS cookies and rate limiting
+app.set('trust proxy', 1);
+
 // Security headers
 app.use(helmet());
 
-// Only allow requests from our own frontend
+// Allowed frontend origins (handles comma-separated list, trims trailing slashes)
+const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
+  .split(',')
+  .map((origin) => origin.trim().replace(/\/$/, ''))
+  .filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173',
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g. curl, server-to-server, mobile)
+      if (!origin) return callback(null, true);
+      const cleanOrigin = origin.replace(/\/$/, '');
+      if (allowedOrigins.includes(cleanOrigin) || process.env.NODE_ENV !== 'production') {
+        return callback(null, true);
+      }
+      return callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
     credentials: true,
   })
 );

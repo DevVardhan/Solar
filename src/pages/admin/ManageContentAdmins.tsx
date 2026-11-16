@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../../api/axios';
+import api, { getErrorMessage } from '../../api/axios';
 
 interface ContentAdmin {
   _id: string;
@@ -37,8 +37,8 @@ export default function ManageContentAdmins() {
       await api.post('/admin/users', form);
       setForm({ name: '', email: '', password: '' });
       load();
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Failed to create Content Admin');
+    } catch (err) {
+      setError(getErrorMessage(err, 'Failed to create Content Admin'));
     } finally {
       setCreating(false);
     }
